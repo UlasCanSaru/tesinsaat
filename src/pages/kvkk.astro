@@ -1,0 +1,183 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const guncellemeTarihi = '24 Mart 2026';
+const sirket = {
+  unvan: 'TES Insaat',
+  eposta: 'info@tesinsaat.com',
+  telefon: '+90 532 333 07 77',
+  adres: 'Cevizli Mah. Zuhal Cd. No:36A, Maltepe / Istanbul',
+};
+---
+
+<Layout
+  title="KVKK Aydinlatma Metni | TES Insaat"
+  description="TES Insaat Kisisel Verilerin Islenmesine Iliskin Aydinlatma Metni. KVKK kapsaminda veri kategorileri, hukuki sebepler ve basvuru haklari."
+>
+  <section class="legal-hero">
+    <div class="section-container">
+      <p class="accent-text">Yasal Metin</p>
+      <h1>KVKK Aydinlatma Metni</h1>
+      <p class="legal-meta">Son guncelleme: {guncellemeTarihi}</p>
+    </div>
+  </section>
+
+  <section class="section-padding legal-wrap">
+    <div class="section-container legal-content">
+      <p>
+        6698 sayili Kisisel Verilerin Korunmasi Kanunu (KVKK) uyarinca veri sorumlusu sifatina sahip
+        <strong> {sirket.unvan}</strong>, kisisel verilerinizi asagida aciklanan kapsamda islemektedir.
+      </p>
+
+      <h2>1. Veri Sorumlusu</h2>
+      <ul>
+        <li>Unvan: {sirket.unvan}</li>
+        <li>E-posta: <a href={`mailto:${sirket.eposta}`}>{sirket.eposta}</a></li>
+        <li>Telefon: <a href={`tel:${sirket.telefon.replaceAll(' ', '')}`}>{sirket.telefon}</a></li>
+        <li>Adres: {sirket.adres}</li>
+      </ul>
+
+      <h2>2. Islenen Kisisel Veri Kategorileri</h2>
+      <ul>
+        <li>Kimlik ve iletisim verileri (ad-soyad, telefon, e-posta).</li>
+        <li>Musteri islem ve talep verileri (teklif ve iletisim icerikleri).</li>
+        <li>Islem guvenligi verileri (IP, log, cihaz/tarayici bilgileri).</li>
+        <li>Gorsel ve isitsel veriler (acik riza gerektiren hallerde).</li>
+      </ul>
+
+      <h2>3. Isleme Amaci ve Hukuki Sebep</h2>
+      <div class="legal-table-wrap">
+        <table class="legal-table">
+          <thead>
+            <tr>
+              <th>Isleme Amaci</th>
+              <th>Hukuki Sebep (KVKK)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Teklif/iletisim sureclerinin yurutilmesi</td>
+              <td>m.5/2-c, m.5/2-f</td>
+            </tr>
+            <tr>
+              <td>Musteri iliskileri ve operasyon yonetimi</td>
+              <td>m.5/2-f</td>
+            </tr>
+            <tr>
+              <td>Hukuki yukumluluklerin yerine getirilmesi</td>
+              <td>m.5/2-c, m.5/2-c ve ilgili mevzuat</td>
+            </tr>
+            <tr>
+              <td>Bilgi guvenligi ve loglama</td>
+              <td>m.5/2-f, ilgili mevzuat</td>
+            </tr>
+            <tr>
+              <td>Acik riza gerektiren pazarlama/iletisim faaliyetleri</td>
+              <td>m.5/1 (acik riza)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>4. Toplama Yontemi</h2>
+      <p>
+        Verileriniz; web sitesi formlari, e-posta, telefon, WhatsApp, cerezler ve benzeri dijital
+        kanallar ile otomatik ya da otomatik olmayan yontemlerle toplanabilmektedir.
+      </p>
+
+      <h2>5. Veri Aktarimi</h2>
+      <p>
+        Kisisel verileriniz, KVKK m.8 ve m.9 hukumlerine uygun olarak; teknik altyapi saglayicilari,
+        hukuk/mali danismanlar ve kanunen yetkili kamu kurumlari ile paylasilabilir.
+      </p>
+
+      <h2>6. Ilgili Kisi Haklari (KVKK m.11)</h2>
+      <ul>
+        <li>Kisisel verinizin islenip islenmedigini ogrenme.</li>
+        <li>Islenmisse buna iliskin bilgi talep etme.</li>
+        <li>Isleme amacini ve amaca uygun kullanilip kullanilmadigini ogrenme.</li>
+        <li>Yurt icinde/yurt disinda aktarilan ucuncu kisileri bilme.</li>
+        <li>Eksik/yanlis islenmis verilerin duzeltilmesini isteme.</li>
+        <li>KVKK'ya uygun olarak silinmesini veya yok edilmesini isteme.</li>
+        <li>Islenen verilerin otomatik sistemlerle analizine itiraz etme.</li>
+        <li>Zarara ugrama halinde tazminat talep etme.</li>
+      </ul>
+
+      <h2>7. Basvuru Usulu</h2>
+      <p>
+        Basvurularinizi KVKK m.13 ve Veri Sorumlusuna Basvuru Usul ve Esaslari Hakkinda Teblig'e
+        uygun sekilde iletebilirsiniz. Basvurular en gec 30 gun icinde ucretsiz olarak sonuclandirilir;
+        islemin ayrica maliyet gerektirmesi halinde Kurulca belirlenen tarifeye gore ucret alinabilir.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-hero {
+    background-color: var(--deep-charcoal);
+    padding: 4rem 0 3rem;
+  }
+  .legal-hero h1 {
+    color: var(--cream);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    margin-top: 0.5rem;
+  }
+  .legal-meta {
+    color: rgba(250, 246, 241, 0.65);
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+  }
+  .legal-wrap {
+    background-color: var(--cream);
+  }
+  .legal-content {
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .legal-content h2 {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: var(--deep-charcoal);
+  }
+  .legal-content p,
+  .legal-content li {
+    font-size: 0.95rem;
+    color: var(--earth-brown);
+    line-height: 1.7;
+  }
+  .legal-content ul {
+    margin: 0;
+    padding-left: 1.2rem;
+  }
+  .legal-content a {
+    color: var(--copper);
+    text-decoration: none;
+  }
+  .legal-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--sand);
+    border-radius: 10px;
+    background: white;
+  }
+  .legal-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+  }
+  .legal-table th,
+  .legal-table td {
+    text-align: left;
+    padding: 0.85rem;
+    border-bottom: 1px solid var(--sand);
+    font-size: 0.9rem;
+    color: var(--earth-brown);
+  }
+  .legal-table th {
+    background: var(--sand);
+    color: var(--deep-charcoal);
+    font-weight: 600;
+  }
+</style>

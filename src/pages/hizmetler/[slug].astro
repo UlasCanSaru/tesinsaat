@@ -1,0 +1,410 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// Tüm hizmet verileri
+export const tumHizmetler = {
+  "alci-siva": {
+    baslik: "Alçı ve sıva uygulamaları",
+    aciklama: "İç ve dış mekanlarda tavan, duvar yüzeylerine profesyonel alçı uygulaması; ince sıva, kaba sıva ve dış cephe sıva hizmetleri.",
+    kapsam: [
+      { baslik: "İç mekan alçı", aciklama: "Tavan ve duvar yüzeylerinde düzgün alçı kaplama." },
+      { baslik: "Kaba sıva", aciklama: "Tuğla ve beton yüzeylerde tesviye amaçlı kaba sıva." },
+      { baslik: "İnce sıva", aciklama: "Boya öncesi pürüzsüz yüzey için ince sıva uygulaması." },
+      { baslik: "Dış cephe sıva", aciklama: "Hava koşullarına dayanıklı dış cephe sıva sistemleri." },
+    ],
+    sss: [
+      { soru: "Alçı ve sıva arasındaki fark nedir?", cevap: "Alçı genellikle iç mekanda dekoratif ve düzeltme amaçlı kullanılırken, sıva yapısal bir kaplama işlemidir." },
+      { soru: "Dış cephe sıvası ne kadar sürede tamamlanır?", cevap: "Proje büyüklüğüne göre değişmekle birlikte, standart bir bina için 2-4 hafta arasında tamamlanır." },
+      { soru: "Hangi malzemeleri kullanıyorsunuz?", cevap: "Sektörde kanıtlanmış, TSE belgeli A sınıfı malzemeler kullanıyoruz." },
+    ],
+    ilgili: ["boya-isleri", "izolasyon", "ince-isler"],
+  },
+  "boya-isleri": {
+    baslik: "Boya işleri",
+    aciklama: "Binaların iç ve dış cephe boya uygulamaları, dekoratif boyama işleri. Profesyonel ekip ve kaliteli malzeme ile uzun ömürlü sonuçlar.",
+    kapsam: [
+      { baslik: "İç cephe boya", aciklama: "Ev, ofis ve ticari alanlar için iç mekan boyama." },
+      { baslik: "Dış cephe boya", aciklama: "Hava koşullarına dayanıklı dış cephe boya sistemleri." },
+      { baslik: "Dekoratif boya", aciklama: "Özel doku ve efekt uygulamaları." },
+      { baslik: "Boya yenileme", aciklama: "Mevcut boyaların sökümü ve yeniden uygulama." },
+    ],
+    sss: [
+      { soru: "Dış cephe boyası kaç yıl dayanır?", cevap: "Kaliteli malzeme ile 8-12 yıl arası dayanıklılık sağlanır." },
+      { soru: "İç cephe boyası ne kadar sürede kurur?", cevap: "Standart koşullarda 4-6 saat içinde kurur, 24 saat sonra tam sertlik kazanır." },
+    ],
+    ilgili: ["alci-siva", "tadilat-yenileme", "ince-isler"],
+  },
+  "demir-donati": {
+    baslik: "Demir donatı işleri",
+    aciklama: "İnşaat projelerinde temel ve bina taşıyıcı elemanlar için demir donatı uygulamaları. Statik projeye uygun, güvenli ve dayanıklı işçilik.",
+    kapsam: [
+      { baslik: "Temel donatı", aciklama: "Bina temellerinde betonarme demir bağlama." },
+      { baslik: "Kolon ve kiriş", aciklama: "Taşıyıcı elemanların demir donatı montajı." },
+      { baslik: "Döşeme donatı", aciklama: "Kat döşemelerinde demir hasır ve nervür uygulaması." },
+      { baslik: "Perde duvar", aciklama: "Betonarme perde duvar demir işleri." },
+    ],
+    sss: [
+      { soru: "Demir kalitesi nasıl belirlenir?", cevap: "Statik projeye uygun B420C veya B500C sınıfı çelik kullanılır." },
+    ],
+    ilgili: ["alci-siva", "ince-isler", "anahtar-teslim-villa"],
+  },
+  "seramik-fayans": {
+    baslik: "Seramik ve fayans işleri",
+    aciklama: "Zemin ve duvarlarda seramik kaplama, fayans döşeme işleri. Hassas işçilik ve estetik sonuçlar.",
+    kapsam: [
+      { baslik: "Zemin seramik", aciklama: "Geniş ve dar alan zemin seramik döşeme." },
+      { baslik: "Duvar fayans", aciklama: "Banyo, mutfak ve ıslak hacim duvar kaplamaları." },
+      { baslik: "Dış mekan seramik", aciklama: "Balkon, teras ve havuz kenarı seramik uygulamaları." },
+      { baslik: "Mozaik", aciklama: "Dekoratif mozaik ve karo uygulamaları." },
+    ],
+    sss: [],
+    ilgili: ["alci-siva", "boya-isleri", "ince-isler"],
+  },
+  "tadilat-yenileme": {
+    baslik: "Tadilat ve yenileme işleri",
+    aciklama: "Mevcut yapıların yenilenmesi, onarım ve dekorasyon çalışmaları. Ev, ofis ve ticari alan tadilatlarında kapsamlı hizmet.",
+    kapsam: [
+      { baslik: "Komple tadilat", aciklama: "Baştan sona ev ve ofis yenileme." },
+      { baslik: "Kısmi tadilat", aciklama: "Banyo, mutfak veya tek oda yenileme." },
+      { baslik: "Yapısal onarım", aciklama: "Çatlak, nem ve yapısal hasar onarımları." },
+      { baslik: "Dekorasyon", aciklama: "İç mekan dekorasyon ve düzenleme." },
+    ],
+    sss: [
+      { soru: "Komple tadilat ne kadar sürer?", cevap: "100m² bir daire için ortalama 4-6 hafta sürmektedir." },
+      { soru: "Tadilat sırasında evde kalabilir miyiz?", cevap: "Kısmi tadilatlarda mümkündür, komple tadilatta geçici taşınma önerilir." },
+    ],
+    ilgili: ["boya-isleri", "seramik-fayans", "izolasyon"],
+  },
+  "izolasyon": {
+    baslik: "İzolasyon çalışmaları",
+    aciklama: "Su, ses ve ısı yalıtımı için gerekli izolasyon malzemelerinin profesyonel uygulanması.",
+    kapsam: [
+      { baslik: "Su yalıtımı", aciklama: "Temel, çatı ve ıslak hacim su izolasyonu." },
+      { baslik: "Isı yalıtımı", aciklama: "Dış cephe mantolama ve iç yalıtım." },
+      { baslik: "Ses yalıtımı", aciklama: "Duvar ve döşemelerde akustik izolasyon." },
+      { baslik: "Yangın yalıtımı", aciklama: "Yangın dayanımlı izolasyon sistemleri." },
+    ],
+    sss: [
+      { soru: "Mantolama ne kadar enerji tasarrufu sağlar?", cevap: "Doğru uygulanan dış cephe mantolaması %30-50 arası enerji tasarrufu sağlar." },
+    ],
+    ilgili: ["alci-siva", "tadilat-yenileme", "anahtar-teslim-villa"],
+  },
+  "anahtar-teslim-villa": {
+    baslik: "Anahtar teslim villa yapımı",
+    aciklama: "Proje aşamasından teslim aşamasına kadar tüm inşaat ve dekorasyon işlerinin tamamlanması. Tek elden yönetim, şeffaf süreç.",
+    kapsam: [
+      { baslik: "Proje yönetimi", aciklama: "Mimari proje takibi ve ruhsat süreçleri." },
+      { baslik: "Kaba inşaat", aciklama: "Temel, karkas ve çatı yapımı." },
+      { baslik: "İnce işler", aciklama: "Sıva, boya, seramik, elektrik ve tesisat." },
+      { baslik: "Peyzaj", aciklama: "Bahçe düzenleme ve çevre yapıları." },
+    ],
+    sss: [
+      { soru: "Anahtar teslim villa ne kadar sürer?", cevap: "Proje büyüklüğüne göre 6-12 ay arası sürmektedir." },
+      { soru: "Fiyat nasıl belirlenir?", cevap: "Metrekare, malzeme kalitesi ve proje detaylarına göre keşif sonrası teklif verilir." },
+    ],
+    ilgili: ["demir-donati", "izolasyon", "ince-isler"],
+  },
+  "ince-isler": {
+    baslik: "İnce işler",
+    aciklama: "Duvar, şap, montaj, seramik, kaplama gibi detaylı ince inşaat işleri. Büyük projelerde taşeron olarak uzman hizmet.",
+    kapsam: [
+      { baslik: "Duvar örme", aciklama: "Tuğla ve gazbeton duvar imalatı." },
+      { baslik: "Şap döküm", aciklama: "Zemin tesviye ve şap uygulaması." },
+      { baslik: "Montaj işleri", aciklama: "Kapı, pencere ve doğrama montajları." },
+      { baslik: "Kaplama", aciklama: "Duvar ve zemin kaplama uygulamaları." },
+    ],
+    sss: [],
+    ilgili: ["alci-siva", "seramik-fayans", "boya-isleri"],
+  },
+  "projeye-ozel-cozumler": {
+    baslik: "Projeye özel inşaat çözümleri",
+    aciklama: "Askeri tesisler, otogarlar, alışveriş merkezleri, okul ve hastane gibi yapılar için projeye özgü inşaat ve tadilat çözümleri.",
+    kapsam: [
+      { baslik: "Askeri tesisler", aciklama: "MSB standartlarına uygun inşaat ve tadilat." },
+      { baslik: "AVM projeleri", aciklama: "Alışveriş merkezi ince işleri ve tadilatları." },
+      { baslik: "Eğitim yapıları", aciklama: "Okul ve üniversite binaları." },
+      { baslik: "Sağlık yapıları", aciklama: "Hastane ve sağlık tesisleri." },
+    ],
+    sss: [],
+    ilgili: ["ince-isler", "alci-siva", "boya-isleri"],
+  },
+};
+
+// Tüm hizmet isimleri (ilgili hizmetler için lookup)
+const hizmetIsimleri: Record<string, string> = {
+  "alci-siva": "Alçı ve sıva",
+  "boya-isleri": "Boya işleri",
+  "demir-donati": "Demir donatı",
+  "seramik-fayans": "Seramik ve fayans",
+  "tadilat-yenileme": "Tadilat ve yenileme",
+  "izolasyon": "İzolasyon",
+  "anahtar-teslim-villa": "Anahtar teslim villa",
+  "ince-isler": "İnce işler",
+  "projeye-ozel-cozumler": "Projeye özel çözümler",
+};
+
+// Astro dynamic route: bu fonksiyon tüm olası URL'leri üretir
+export function getStaticPaths() {
+  return Object.keys(tumHizmetler).map((slug) => ({
+    params: { slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const hizmet = tumHizmetler[slug as keyof typeof tumHizmetler];
+
+if (!hizmet) {
+  Astro.redirect('/hizmetler');
+}
+
+const surec = [
+  { no: "1", baslik: "Keşif", aciklama: "Yerinde inceleme ve ölçüm" },
+  { no: "2", baslik: "Teklif", aciklama: "Detaylı fiyat ve süre planı" },
+  { no: "3", baslik: "Uygulama", aciklama: "Profesyonel ekip ile işçilik" },
+  { no: "4", baslik: "Kontrol", aciklama: "Kalite denetimi ve teslimat" },
+];
+---
+
+<Layout
+  title={`${hizmet.baslik} | TES İnşaat`}
+  description={hizmet.aciklama}
+>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb-bar">
+    <div class="section-container">
+      <a href="/">Ana Sayfa</a>
+      <span class="sep">/</span>
+      <a href="/hizmetler">Hizmetler</a>
+      <span class="sep">/</span>
+      <span class="current">{hizmet.baslik}</span>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="detail-hero">
+    <div class="section-container detail-hero-inner">
+      <div class="detail-hero-text">
+        <p class="accent-text" style="color: var(--warm-gray);">Hizmet detayı</p>
+        <h1>{hizmet.baslik}</h1>
+        <p class="detail-hero-desc">{hizmet.aciklama}</p>
+        <a href="https://wa.me/905XXXXXXXXX" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+          Teklif Alın <span>&rarr;</span>
+        </a>
+      </div>
+      <div class="detail-hero-img">
+        <span>Hizmet fotoğrafı</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kapsam -->
+  <section class="section-padding" style="background-color: var(--cream);">
+    <div class="section-container">
+      <p class="accent-text fade-in">Kapsam</p>
+      <h2 class="section-title fade-in">Bu hizmette neler var?</h2>
+      <div class="scope-grid">
+        {hizmet.kapsam.map((k) => (
+          <div class="scope-item fade-in">
+            <div class="scope-dot"></div>
+            <div>
+              <h4>{k.baslik}</h4>
+              <p>{k.aciklama}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Süreç -->
+  <section class="section-padding" style="background-color: var(--sand);">
+    <div class="section-container">
+      <p class="accent-text fade-in">Süreç</p>
+      <h2 class="section-title fade-in">Nasıl çalışıyoruz?</h2>
+      <div class="process-grid">
+        {surec.map((s) => (
+          <div class="process-step fade-in">
+            <div class="process-num">{s.no}</div>
+            <h4>{s.baslik}</h4>
+            <p>{s.aciklama}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SSS -->
+  {hizmet.sss.length > 0 && (
+    <section class="section-padding" style="background-color: var(--cream);">
+      <div class="section-container">
+        <p class="accent-text fade-in">Sık sorulan sorular</p>
+        <h2 class="section-title fade-in">Merak edilenler</h2>
+        <div class="faq-list">
+          {hizmet.sss.map((s) => (
+            <details class="faq-item fade-in">
+              <summary>{s.soru}</summary>
+              <p>{s.cevap}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- İlgili hizmetler -->
+  <section class="section-padding" style="background-color: var(--sand);">
+    <div class="section-container">
+      <p class="accent-text fade-in">İlgili hizmetler</p>
+      <h2 class="section-title fade-in">Bunlara da bakın</h2>
+      <div class="related-grid">
+        {hizmet.ilgili.map((s) => (
+          <a href={`/hizmetler/${s}`} class="related-card fade-in">
+            <h4>{hizmetIsimleri[s]}</h4>
+            <span class="related-link">Detaylar &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background-color: var(--cream); padding: 2rem 0 4rem;">
+    <div class="section-container">
+      <div class="cta-inner fade-in">
+        <div class="cta-text">
+          <h2>Teklif alın</h2>
+          <p>Ücretsiz keşif için hemen ulaşın.</p>
+        </div>
+        <a href="https://wa.me/905XXXXXXXXX" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+          WhatsApp ile Ulaşın <span>&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .breadcrumb-bar {
+    background-color: var(--cream);
+    padding: 0.75rem 0;
+    font-size: 0.8rem;
+    border-bottom: 1px solid var(--sand);
+  }
+  .breadcrumb-bar a { color: var(--warm-gray); text-decoration: none; }
+  .breadcrumb-bar a:hover { color: var(--copper); }
+  .breadcrumb-bar .sep { margin: 0 0.5rem; color: var(--copper-light); }
+  .breadcrumb-bar .current { color: var(--deep-charcoal); font-weight: 500; }
+
+  .detail-hero {
+    background-color: var(--deep-charcoal);
+    padding: 4rem 0;
+  }
+  .detail-hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+  .detail-hero-text { flex: 1; }
+  .detail-hero-text h1 {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    color: var(--cream);
+    margin: 0.5rem 0 1rem;
+  }
+  .detail-hero-desc {
+    font-size: 1rem;
+    color: rgba(250,246,241,0.6);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    max-width: 440px;
+  }
+  .detail-hero-img {
+    width: 280px;
+    height: 220px;
+    background-color: var(--earth-brown);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .detail-hero-img span { font-size: 0.85rem; color: rgba(250,246,241,0.4); font-style: italic; }
+
+  .section-title { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: var(--deep-charcoal); margin-bottom: 1.5rem; }
+
+  .scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .scope-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid var(--sand);
+  }
+  .scope-dot { width: 10px; height: 10px; background-color: var(--copper); border-radius: 50%; margin-top: 4px; flex-shrink: 0; }
+  .scope-item h4 { font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--deep-charcoal); margin-bottom: 0.2rem; }
+  .scope-item p { font-size: 0.8rem; color: var(--warm-gray); line-height: 1.5; }
+
+  .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .process-step { text-align: center; padding: 1.25rem; background-color: white; border-radius: 10px; }
+  .process-num {
+    width: 36px; height: 36px; background-color: var(--copper); color: var(--cream);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 0.875rem; font-weight: 600; margin: 0 auto 0.75rem;
+  }
+  .process-step h4 { font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--deep-charcoal); margin-bottom: 0.2rem; }
+  .process-step p { font-size: 0.8rem; color: var(--warm-gray); }
+
+  .faq-list { display: flex; flex-direction: column; gap: 0.75rem; max-width: 640px; }
+  .faq-item {
+    background-color: white;
+    border: 1px solid var(--sand);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+  }
+  .faq-item summary {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--deep-charcoal);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .faq-item summary::after { content: '+'; font-size: 1.2rem; color: var(--copper); }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item p { font-size: 0.85rem; color: var(--warm-gray); line-height: 1.6; margin-top: 0.75rem; }
+
+  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .related-card {
+    background-color: white;
+    border: 1px solid var(--sand);
+    border-radius: 10px;
+    padding: 1.25rem;
+    text-decoration: none;
+    transition: border-color 0.2s ease;
+  }
+  .related-card:hover { border-color: var(--copper); }
+  .related-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--deep-charcoal); margin-bottom: 0.5rem; }
+  .related-link { font-size: 0.8rem; color: var(--copper); font-weight: 500; }
+
+  .cta-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    background-color: var(--sand); border-radius: 16px; padding: 2.5rem;
+  }
+  .cta-text h2 { font-size: 1.5rem; font-weight: 700; color: var(--deep-charcoal); margin-bottom: 0.25rem; }
+  .cta-text p { font-size: 0.9rem; color: var(--warm-gray); }
+
+  @media (max-width: 768px) {
+    .detail-hero-inner { flex-direction: column; }
+    .detail-hero-img { width: 100%; height: 200px; }
+    .scope-grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: repeat(2, 1fr); }
+    .related-grid { grid-template-columns: 1fr; }
+    .cta-inner { flex-direction: column; text-align: center; gap: 1.5rem; padding: 2rem 1.5rem; }
+  }
+</style>

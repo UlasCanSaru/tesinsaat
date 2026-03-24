@@ -1,0 +1,147 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const guncellemeTarihi = '24 Mart 2026';
+const sirket = {
+  unvan: 'TES Insaat',
+  eposta: 'info@tesinsaat.com',
+  telefon: '+90 532 333 07 77',
+  adres: 'Cevizli Mah. Zuhal Cd. No:36A, Maltepe / Istanbul',
+};
+---
+
+<Layout
+  title="Gizlilik Politikasi | TES Insaat"
+  description="TES Insaat gizlilik politikasi. Kisisel verilerin 6698 sayili KVKK kapsaminda hangi esaslarla islendigi, saklandigi ve korundugu aciklanir."
+>
+  <section class="legal-hero">
+    <div class="section-container">
+      <p class="accent-text">Yasal Metin</p>
+      <h1>Gizlilik Politikasi</h1>
+      <p class="legal-meta">Son guncelleme: {guncellemeTarihi}</p>
+    </div>
+  </section>
+
+  <section class="section-padding legal-wrap">
+    <div class="section-container legal-content">
+      <p>
+        Bu politika, <strong>{sirket.unvan}</strong> tarafindan isletilen web sitesi ve iletisim kanallari
+        uzerinden elde edilen kisisel verilerin 6698 sayili Kisisel Verilerin Korunmasi Kanunu
+        (KVKK) ve ilgili ikincil duzenlemelere uygun sekilde islenmesine iliskin esaslari aciklar.
+      </p>
+
+      <h2>1. Islenen Veri Kategorileri</h2>
+      <ul>
+        <li>Kimlik ve iletisim bilgileri (ad, soyad, telefon, e-posta).</li>
+        <li>Talep ve mesaj icerigi (teklif/iletisim formlari, WhatsApp gorusmeleri kapsami).</li>
+        <li>Islem guvenligi verileri (IP, tarih-saat, log kayitlari, cihaz/tarayici bilgileri).</li>
+        <li>Cerez ve benzeri teknolojiler araciligiyla elde edilen kullanim verileri.</li>
+      </ul>
+
+      <h2>2. Isleme Amaclari</h2>
+      <ul>
+        <li>Talep, teklif ve iletisim sureclerinin yurutulmesi.</li>
+        <li>Musteri memnuniyeti, hizmet kalitesi ve operasyonel sureclerin iyilestirilmesi.</li>
+        <li>Bilgi guvenligi ve sistem surekliliginin saglanmasi.</li>
+        <li>Hukuki yukumluluklerin yerine getirilmesi ve yetkili kurum taleplerinin karsilanmasi.</li>
+      </ul>
+
+      <h2>3. Hukuki Sebepler</h2>
+      <p>
+        Kisisel verileriniz, KVKK m.5 ve m.6 kapsamindaki hukuki sebeplere dayanilarak islenir.
+        Baslica dayanaklar: kanunlarda acikca ongorulmesi, bir sozlesmenin kurulmasi/ifasi ile
+        dogrudan ilgili olmasi, hukuki yukumlulugun yerine getirilmesi, bir hakkin tesisi/kullanilmasi/
+        korunmasi ve mesru menfaatlerdir. Acik riza gerektiren hallerde ayrica acik rizaniz alinmaktadir.
+      </p>
+
+      <h2>4. Veri Aktarimi</h2>
+      <p>
+        Verileriniz, KVKK m.8 ve m.9 hukumlerine uygun olarak; yalnizca gerekli olmasi halinde
+        yetkili kamu kurum ve kuruluslarina, hukuk/mali danismanlara ve teknik altyapi hizmeti
+        aldigimiz tedarikcilere aktarilabilir.
+      </p>
+
+      <h2>5. Saklama ve Imha</h2>
+      <p>
+        Veriler, ilgili mevzuatta ongorulen saklama sureleri ve isleme amacinin gerektirdigi sure
+        boyunca saklanir. Sure bitiminde KVKK ve ikincil duzenlemelere uygun sekilde silinir,
+        yok edilir veya anonim hale getirilir.
+      </p>
+
+      <h2>6. Veri Guvenligi</h2>
+      <p>
+        {sirket.unvan}, KVKK m.12 uyarinca kisisel verilerin hukuka aykiri islenmesini ve erisilmesini
+        onlemek, verilerin muhafazasini saglamak amaciyla uygun teknik ve idari tedbirleri alir.
+      </p>
+
+      <h2>7. Ilgili Kisi Haklari</h2>
+      <p>
+        KVKK m.11 kapsaminda; verinizin islenip islenmedigini ogrenme, islenme amacini ogrenme,
+        aktarildigi ucuncu kisileri bilme, duzeltme, silme/yok etme talep etme, itiraz etme ve zarar
+        halinde tazminat talep etme haklarina sahipsiniz.
+      </p>
+
+      <h2>8. Basvuru Usulu</h2>
+      <p>
+        Haklariniza iliskin basvurularinizi, KVKK m.13 ve Veri Sorumlusuna Basvuru Usul ve Esaslari
+        Hakkinda Teblig'e uygun sekilde iletebilirsiniz. Basvurular en gec 30 gun icinde cevaplanir.
+      </p>
+      <ul>
+        <li>E-posta: <a href={`mailto:${sirket.eposta}`}>{sirket.eposta}</a></li>
+        <li>Telefon: <a href={`tel:${sirket.telefon.replaceAll(' ', '')}`}>{sirket.telefon}</a></li>
+        <li>Adres: {sirket.adres}</li>
+      </ul>
+
+      <h2>9. Politika Guncellemeleri</h2>
+      <p>
+        Bu politika, mevzuat degisiklikleri ve operasyonel ihtiyaclar dogrultusunda guncellenebilir.
+        Guncel metin bu sayfada yayimlanir.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-hero {
+    background-color: var(--deep-charcoal);
+    padding: 4rem 0 3rem;
+  }
+  .legal-hero h1 {
+    color: var(--cream);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    margin-top: 0.5rem;
+  }
+  .legal-meta {
+    color: rgba(250, 246, 241, 0.65);
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+  }
+  .legal-wrap {
+    background-color: var(--cream);
+  }
+  .legal-content {
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .legal-content h2 {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: var(--deep-charcoal);
+  }
+  .legal-content p,
+  .legal-content li {
+    font-size: 0.95rem;
+    color: var(--earth-brown);
+    line-height: 1.7;
+  }
+  .legal-content ul {
+    margin: 0;
+    padding-left: 1.2rem;
+  }
+  .legal-content a {
+    color: var(--copper);
+    text-decoration: none;
+  }
+</style>

@@ -1,0 +1,156 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const projeler = [
+  { baslik: "Şile villa projesi", aciklama: "Anahtar teslim villa inşaatı", musteri: "TES İnşaat — ana yüklenici", kategori: "Konut", slug: "sile-villa" },
+  { baslik: "Gebze metro istasyonu", aciklama: "2 istasyonda ince işler: duvar, sıva, seramik, boya", musteri: "Eze İnşaat — alt taşeron", kategori: "Kamu", slug: "gebze-metro" },
+  { baslik: "Kartal Real AVM", aciklama: "AVM ince işleri: alçı, boya, seramik kaplama", musteri: "Tepe İnşaat — alt taşeron", kategori: "Ticari", slug: "kartal-real-avm" },
+  { baslik: "MSB askeri birlikler", aciklama: "Askeri birliklerin inşaat ve tadilat işleri", musteri: "1. Ordu Komutanlığı / Üsküdar", kategori: "Kamu", slug: "msb-askeri" },
+  { baslik: "Türk Telekom binaları", aciklama: "2014–2020 kurum binaları tadilatları", musteri: "Türk Telekom AŞ", kategori: "Kurumsal", slug: "turk-telekom" },
+  { baslik: "Yeşil Bursa konutları", aciklama: "Toplu konut ince işleri", musteri: "Çukurova Baytur — alt taşeron", kategori: "Konut", slug: "yesil-bursa" },
+  { baslik: "Ford bölge servisleri", aciklama: "Adana, Samsun, Antalya servis binaları ince işleri", musteri: "Ford Otosan", kategori: "Ticari", slug: "ford-servisleri" },
+  { baslik: "Beylikdüzü Migros AVM", aciklama: "AVM yapım sürecinde ince işler", musteri: "Alt taşeron", kategori: "Ticari", slug: "migros-avm" },
+  { baslik: "Sağlık Bakanlığı hastaneleri", aciklama: "İstanbul'daki hastanelerin inşaat işleri", musteri: "Sağlık Bakanlığı", kategori: "Kamu", slug: "saglik-hastaneleri" },
+  { baslik: "Garanti Koza projeleri", aciklama: "Çeşitli projelerin ince işleri", musteri: "Garanti Koza AŞ — alt taşeron", kategori: "Ticari", slug: "garanti-koza" },
+  { baslik: "Adapazarı Otoyol Fabrikası", aciklama: "Fabrika binası ince işleri", musteri: "Alt taşeron", kategori: "Ticari", slug: "adapazari-fabrika" },
+];
+
+const kategoriler = ["Tümü", "Kamu", "Ticari", "Konut", "Kurumsal"];
+
+const kategoriRenk: Record<string, string> = {
+  "Kamu": "tag-kamu",
+  "Ticari": "tag-ticari",
+  "Konut": "tag-konut",
+  "Kurumsal": "tag-kurumsal",
+};
+---
+
+<Layout
+  title="Projeler | TES İnşaat — Tamamlanan Projelerimiz"
+  description="TES İnşaat'ın 2001'den bu yana kamu, ticari ve konut sektöründe tamamladığı projeler. Referanslar ve iş bitirme belgeleri."
+>
+
+  <section class="hero-proj">
+    <div class="section-container">
+      <p class="accent-text fade-in" style="color: var(--warm-gray);">Portföyümüz</p>
+      <h1 class="fade-in fade-in-delay-1">Tamamlanan<br>projelerimiz.</h1>
+      <p class="hero-proj-desc fade-in fade-in-delay-2">
+        2001'den bu yana kamu, ticari ve konut projelerinde gerçekleştirdiğimiz işlerden örnekler.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-padding" style="background-color: var(--cream);">
+    <div class="section-container">
+      <div class="filter-row" id="filterRow">
+        {kategoriler.map((k, i) => (
+          <button class={`filter-btn ${i === 0 ? 'active' : ''}`} data-filter={k}>{k}</button>
+        ))}
+      </div>
+
+      <div class="proj-grid" id="projGrid">
+        {projeler.map((p) => (
+          <a href={`/projeler/${p.slug}`} class="proj-card fade-in" data-kategori={p.kategori}>
+            <div class="proj-img">
+              <span class={`proj-tag ${kategoriRenk[p.kategori]}`}>{p.kategori}</span>
+            </div>
+            <div class="proj-body">
+              <h3>{p.baslik}</h3>
+              <span class="proj-musteri">{p.musteri}</span>
+              <p>{p.aciklama}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section style="background-color: var(--cream); padding-bottom: 4rem;">
+    <div class="section-container">
+      <div class="cta-inner fade-in">
+        <div class="cta-text">
+          <h2>Bir sonraki proje sizinki olsun</h2>
+          <p>Referanslarımızı inceleyin, bize ulaşın.</p>
+        </div>
+        <a href="https://wa.me/905XXXXXXXXX" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+          WhatsApp ile Ulaşın <span>&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.proj-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+      cards.forEach(card => {
+        const kat = card.getAttribute('data-kategori');
+        if (filter === 'Tümü' || kat === filter) {
+          (card as HTMLElement).style.display = '';
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .hero-proj { background-color: var(--deep-charcoal); padding: 5rem 0 4rem; }
+  .hero-proj h1 { font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 800; color: var(--cream); margin: 0.5rem 0 1rem; }
+  .hero-proj-desc { font-size: 1rem; color: rgba(250,246,241,0.6); max-width: 420px; line-height: 1.7; }
+
+  .filter-row { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .filter-btn {
+    padding: 0.4rem 1.1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;
+    border: 1px solid var(--sand); background-color: white; color: var(--warm-gray);
+    cursor: pointer; font-family: 'Outfit', sans-serif; transition: all 0.2s ease;
+  }
+  .filter-btn.active { background-color: var(--copper); color: var(--cream); border-color: var(--copper); }
+  .filter-btn:hover:not(.active) { border-color: var(--copper); color: var(--copper); }
+
+  .proj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  .proj-card {
+    background-color: white; border-radius: 12px; overflow: hidden;
+    text-decoration: none; border: 1px solid var(--sand);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .proj-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(92,61,46,0.08); }
+  .proj-img {
+    height: 160px; background: linear-gradient(135deg, var(--copper-light), var(--copper-dark));
+    position: relative;
+  }
+  .proj-tag {
+    position: absolute; top: 10px; right: 10px; padding: 3px 10px;
+    border-radius: 20px; font-size: 0.7rem; font-weight: 500;
+  }
+  .tag-kamu { background: rgba(59,139,212,0.15); color: #185FA5; }
+  .tag-ticari { background: rgba(184,115,51,0.15); color: #8B5A2B; }
+  .tag-konut { background: rgba(99,153,34,0.15); color: #3B6D11; }
+  .tag-kurumsal { background: rgba(163,149,136,0.15); color: #5C3D2E; }
+
+  .proj-body { padding: 1.25rem; }
+  .proj-body h3 { font-size: 1.1rem; font-weight: 700; color: var(--deep-charcoal); margin-bottom: 0.25rem; }
+  .proj-musteri { font-size: 0.8rem; color: var(--copper); font-weight: 500; display: block; margin-bottom: 0.375rem; }
+  .proj-body p { font-size: 0.8rem; color: var(--warm-gray); line-height: 1.5; }
+
+  .cta-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    background-color: var(--sand); border-radius: 16px; padding: 2.5rem;
+  }
+  .cta-text h2 { font-size: 1.5rem; font-weight: 700; color: var(--deep-charcoal); margin-bottom: 0.25rem; }
+  .cta-text p { font-size: 0.9rem; color: var(--warm-gray); }
+
+  @media (max-width: 768px) {
+    .proj-grid { grid-template-columns: 1fr; }
+    .cta-inner { flex-direction: column; text-align: center; gap: 1.5rem; padding: 2rem 1.5rem; }
+  }
+</style>

@@ -1,0 +1,174 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const guncellemeTarihi = '24 Mart 2026';
+const sirket = {
+  unvan: 'TES Insaat',
+  eposta: 'info@tesinsaat.com',
+};
+---
+
+<Layout
+  title="Cerez Politikasi | TES Insaat"
+  description="TES Insaat cerez politikasi. Cerez turleri, kullanim amaclari, hukuki dayanaklar ve tercih yonetimi hakkinda bilgilendirme."
+>
+  <section class="legal-hero">
+    <div class="section-container">
+      <p class="accent-text">Yasal Metin</p>
+      <h1>Cerez Politikasi</h1>
+      <p class="legal-meta">Son guncelleme: {guncellemeTarihi}</p>
+    </div>
+  </section>
+
+  <section class="section-padding legal-wrap">
+    <div class="section-container legal-content">
+      <p>
+        Bu politika, <strong>{sirket.unvan}</strong> web sitesinde kullanilan cerez ve benzeri teknolojilere
+        iliskin esaslari aciklar. Cerezlerin kullanimi, 6698 sayili KVKK ve Kisisel Verileri Koruma
+        Kurumu (KVKK Kurumu) cerez rehberinde belirtilen ilkelere uygun olarak yürütülür.
+      </p>
+
+      <h2>1. Cerez Nedir?</h2>
+      <p>
+        Cerezler, bir internet sitesini ziyaret ettiginizde tarayiciniz araciligiyla cihaziniza kaydedilen
+        kucuk metin dosyalaridir. Cerezler sayesinde site daha guvenli, islevsel ve kullanici dostu hale gelir.
+      </p>
+
+      <h2>2. Kullandigimiz Cerez Turleri</h2>
+      <div class="legal-table-wrap">
+        <table class="legal-table">
+          <thead>
+            <tr>
+              <th>Cerez Turu</th>
+              <th>Amac</th>
+              <th>Hukuki Dayanak</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Zorunlu Cerezler</td>
+              <td>Site guvenligi, sayfa yonlendirmeleri, temel islevler</td>
+              <td>KVKK m.5/2-c ve m.5/2-f</td>
+            </tr>
+            <tr>
+              <td>Islevsellik Cerezleri</td>
+              <td>Dil/tercih gibi kullanici deneyimi ayarlari</td>
+              <td>Acik riza veya m.5/2-f (duruma gore)</td>
+            </tr>
+            <tr>
+              <td>Analitik/Performans Cerezleri</td>
+              <td>Site kullanimini olcmek ve iyilestirmek</td>
+              <td>Acik riza gerektiren hallerde KVKK m.5/1</td>
+            </tr>
+            <tr>
+              <td>Ucuncu Taraf Icerik Cerezleri</td>
+              <td>Harita/medya gibi dis servislerin calismasi</td>
+              <td>Acik riza gerektiren hallerde KVKK m.5/1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>3. Ucuncu Taraf Cerezler</h2>
+      <p>
+        Sitemizde yer alan Google Maps benzeri gomulu icerikler, ilgili ucuncu taraflarin kendi
+        cerezlerini kullanmasina neden olabilir. Bu cerezlerin yonetimi ilgili saglayicilarin politikalarina tabidir.
+      </p>
+
+      <h2>4. Cerez Tercihlerini Yonetme</h2>
+      <p>
+        Tarayici ayarlariniz uzerinden cerezleri reddedebilir, silebilir veya belirli cerez turlerini
+        engelleyebilirsiniz. Ancak zorunlu cerezlerin devre disi birakilmasi, sitenin bazi fonksiyonlarinin
+        dogru calismamasina yol acabilir.
+      </p>
+      <ul>
+        <li>Chrome: Ayarlar {'>'} Gizlilik ve Guvenlik {'>'} Cerezler ve Diger Site Verileri</li>
+        <li>Safari: Ayarlar {'>'} Gizlilik</li>
+        <li>Firefox: Ayarlar {'>'} Gizlilik ve Guvenlik</li>
+        <li>Edge: Ayarlar {'>'} Cerezler ve Site Izinleri</li>
+      </ul>
+
+      <h2>5. Ilgili Kisi Haklari</h2>
+      <p>
+        Cerezler araciligiyla islenen kisisel verileriniz acisindan KVKK m.11 kapsamindaki tum haklara
+        sahipsiniz. Haklarinizla ilgili taleplerinizi <a href={`mailto:${sirket.eposta}`}>{sirket.eposta}</a>
+        adresi uzerinden iletebilirsiniz.
+      </p>
+
+      <h2>6. Politika Guncellemeleri</h2>
+      <p>
+        Mevzuat ve teknik altyapi degisikliklerine bagli olarak bu politika guncellenebilir.
+        Guncel metin her zaman bu sayfada yayimlanir.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-hero {
+    background-color: var(--deep-charcoal);
+    padding: 4rem 0 3rem;
+  }
+  .legal-hero h1 {
+    color: var(--cream);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    margin-top: 0.5rem;
+  }
+  .legal-meta {
+    color: rgba(250, 246, 241, 0.65);
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+  }
+  .legal-wrap {
+    background-color: var(--cream);
+  }
+  .legal-content {
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .legal-content h2 {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: var(--deep-charcoal);
+  }
+  .legal-content p,
+  .legal-content li {
+    font-size: 0.95rem;
+    color: var(--earth-brown);
+    line-height: 1.7;
+  }
+  .legal-content ul {
+    margin: 0;
+    padding-left: 1.2rem;
+  }
+  .legal-content a {
+    color: var(--copper);
+    text-decoration: none;
+  }
+  .legal-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--sand);
+    border-radius: 10px;
+    background: white;
+  }
+  .legal-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+  }
+  .legal-table th,
+  .legal-table td {
+    text-align: left;
+    padding: 0.85rem;
+    border-bottom: 1px solid var(--sand);
+    font-size: 0.9rem;
+    color: var(--earth-brown);
+  }
+  .legal-table th {
+    background: var(--sand);
+    color: var(--deep-charcoal);
+    font-weight: 600;
+  }
+</style>

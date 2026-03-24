@@ -1,0 +1,172 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const hizmetler = [
+  { no: "01", kisa: "A/S", baslik: "Alçı ve sıva", aciklama: "İç-dış mekan alçı, ince sıva ve dış cephe sıva uygulamaları.", slug: "alci-siva" },
+  { no: "02", kisa: "BY", baslik: "Boya işleri", aciklama: "İç ve dış cephe boya, dekoratif boyama uygulamaları.", slug: "boya-isleri" },
+  { no: "03", kisa: "DD", baslik: "Demir donatı", aciklama: "Temel ve taşıyıcı elemanlar için demir donatı uygulamaları.", slug: "demir-donati" },
+  { no: "04", kisa: "SF", baslik: "Seramik ve fayans", aciklama: "Zemin ve duvarlarda seramik kaplama, fayans döşeme.", slug: "seramik-fayans" },
+  { no: "05", kisa: "TY", baslik: "Tadilat ve yenileme", aciklama: "Mevcut yapıların onarımı, yenileme ve dekorasyon.", slug: "tadilat-yenileme" },
+  { no: "06", kisa: "İZ", baslik: "İzolasyon", aciklama: "Su, ses ve ısı yalıtımı için profesyonel izolasyon.", slug: "izolasyon" },
+  { no: "07", kisa: "ATV", baslik: "Anahtar teslim villa", aciklama: "Projeden teslime tüm inşaat ve dekorasyon süreçleri.", slug: "anahtar-teslim-villa" },
+  { no: "08", kisa: "İİ", baslik: "İnce işler", aciklama: "Duvar, şap, montaj, seramik ve kaplama detay işleri.", slug: "ince-isler" },
+  { no: "09", kisa: "PÖ", baslik: "Projeye özel çözümler", aciklama: "Askeri tesis, AVM, okul ve hastane için özel projeler.", slug: "projeye-ozel-cozumler" },
+];
+---
+
+<Layout
+  title="Hizmetler | TES İnşaat — Profesyonel İnşaat Hizmetleri"
+  description="TES İnşaat'ın sunduğu 9 farklı inşaat hizmeti. Alçı, sıva, boya, demir donatı, seramik, tadilat, izolasyon, anahtar teslim villa ve projeye özel çözümler."
+>
+
+  <section class="hero-svc">
+    <div class="section-container">
+      <p class="accent-text fade-in" style="color: var(--warm-gray);">Uzmanlık alanlarımız</p>
+      <h1 class="fade-in fade-in-delay-1">Profesyonel inşaat<br>hizmetleri.</h1>
+      <p class="hero-svc-desc fade-in fade-in-delay-2">
+        Alçıdan izolasyona, anahtar teslim villadan projeye özel çözümlere
+        kadar geniş hizmet yelpazemizle yanınızdayız.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-padding" style="background-color: var(--cream);">
+    <div class="section-container">
+      <p class="accent-text fade-in">Tüm hizmetler</p>
+      <h2 class="section-title fade-in">Ne yapıyoruz?</h2>
+      <div class="svc-grid">
+        {hizmetler.map((h) => (
+          <a href={`/hizmetler/${h.slug}`} class="svc-card fade-in">
+            <div class="svc-top">
+              <span class="svc-num">{h.no}</span>
+              <div class="svc-icon"><span>{h.kisa}</span></div>
+            </div>
+            <h3>{h.baslik}</h3>
+            <p>{h.aciklama}</p>
+            <span class="svc-link">Detaylar &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section style="background-color: var(--cream); padding-bottom: 4rem;">
+    <div class="section-container">
+      <div class="cta-inner fade-in">
+        <div class="cta-text">
+          <h2>Hangi hizmete ihtiyacınız var?</h2>
+          <p>Size özel çözüm için hemen ulaşın.</p>
+        </div>
+        <a href="https://wa.me/905XXXXXXXXX" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+          WhatsApp ile Ulaşın <span>&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .hero-svc {
+    background-color: var(--deep-charcoal);
+    padding: 5rem 0 4rem;
+  }
+  .hero-svc h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: var(--cream);
+    margin: 0.5rem 0 1rem;
+  }
+  .hero-svc-desc {
+    font-size: 1rem;
+    color: rgba(250,246,241,0.6);
+    max-width: 460px;
+    line-height: 1.7;
+  }
+  .section-title {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
+    color: var(--deep-charcoal);
+    margin-bottom: 2rem;
+  }
+  .svc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .svc-card {
+    background-color: white;
+    border: 1px solid var(--sand);
+    border-radius: 12px;
+    padding: 1.5rem 1.25rem;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .svc-card:hover {
+    border-color: var(--copper);
+    transform: translateY(-2px);
+  }
+  .svc-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .svc-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--sand);
+  }
+  .svc-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--cream);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .svc-icon span {
+    font-size: 0.7rem;
+    color: var(--copper);
+    font-weight: 600;
+  }
+  .svc-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--deep-charcoal);
+  }
+  .svc-card p {
+    font-size: 0.8rem;
+    color: var(--warm-gray);
+    line-height: 1.5;
+  }
+  .svc-link {
+    font-size: 0.8rem;
+    color: var(--copper);
+    font-weight: 500;
+    margin-top: auto;
+  }
+  .cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--sand);
+    border-radius: 16px;
+    padding: 2.5rem;
+  }
+  .cta-text h2 { font-size: 1.5rem; font-weight: 700; color: var(--deep-charcoal); margin-bottom: 0.25rem; }
+  .cta-text p { font-size: 0.9rem; color: var(--warm-gray); }
+
+  @media (max-width: 768px) {
+    .svc-grid { grid-template-columns: repeat(2, 1fr); }
+    .cta-inner { flex-direction: column; text-align: center; gap: 1.5rem; padding: 2rem 1.5rem; }
+  }
+  @media (max-width: 480px) {
+    .svc-grid { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,210 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+export const tumProjeler: Record<string, any> = {
+  "sile-villa": {
+    baslik: "Şile villa projesi",
+    aciklama: "Şile Belediyesi sınırlarında firmamıza ait arsa üzerine inşa edilen anahtar teslim villa projesi. Kaba yapıdan ince işlere, çatı konstrüksiyonundan havuz yapımına kadar tüm süreç TES İnşaat tarafından yönetilmiştir.",
+    konum: "Şile, İstanbul", kategori: "Konut — anahtar teslim", rol: "Ana yüklenici", durum: "Tamamlandı",
+    kapsam: ["Temel ve kaba yapı inşaatı", "Demir donatı uygulamaları", "Çatı ahşap konstrüksiyon", "İç ve dış sıva, alçı uygulamaları", "Seramik kaplama ve fayans döşeme", "Havuz yapımı ve izolasyon", "İç ve dış cephe boya"],
+  },
+  "gebze-metro": {
+    baslik: "Gebze metro istasyonu",
+    aciklama: "Ulaştırma Bakanlığı'na bağlı Eze İnşaat'ın alt taşeronu olarak 2 istasyonun ince işleri tamamlanmıştır.",
+    konum: "Gebze, Kocaeli", kategori: "Kamu — ulaşım", rol: "Alt taşeron (Eze İnşaat)", durum: "Tamamlandı",
+    kapsam: ["Duvar örme ve hatıl imalatı", "Sıva öncesi brüt beton astarı", "İnce ve kaba sıva uygulaması", "Seramik ve karo mozaik", "Alçı ve dolgular", "Boya ve mantolama"],
+  },
+  "kartal-real-avm": {
+    baslik: "Kartal Real Hipermarket AVM",
+    aciklama: "Tepe İnşaat AŞ'nin inşaatını yaptığı AVM'nin ince işleri tamamlanmıştır.",
+    konum: "Kartal, İstanbul", kategori: "Ticari — AVM", rol: "Alt taşeron (Tepe İnşaat)", durum: "Tamamlandı",
+    kapsam: ["Alçı uygulamaları", "İç cephe boya", "Seramik kaplama", "İnce işler genel"],
+  },
+  "msb-askeri": {
+    baslik: "MSB askeri birlikler",
+    aciklama: "Millî Savunma Bakanlığı'na bağlı İstanbul'daki askeri birliklerin inşaat işleri yapılmıştır.",
+    konum: "Üsküdar, İstanbul", kategori: "Kamu — askeri", rol: "Ana yüklenici", durum: "Tamamlandı",
+    kapsam: ["Askeri tesis inşaat işleri", "Tadilat ve yenileme", "Alçı, sıva ve boya"],
+  },
+  "turk-telekom": {
+    baslik: "Türk Telekom kurum binaları",
+    aciklama: "Türk Telekom AŞ firmasının 2014-2020 yılları arasında kurum binaları tadilatları yapılmıştır.",
+    konum: "İstanbul (çeşitli lokasyonlar)", kategori: "Kurumsal", rol: "Ana yüklenici", durum: "Tamamlandı",
+    kapsam: ["Kurum binası iç tadilatları", "Boya ve sıva yenileme", "Seramik ve zemin kaplama", "Genel bakım-onarım"],
+  },
+  "yesil-bursa": {
+    baslik: "Yeşil Bursa konutları",
+    aciklama: "Çukurova Baytur AŞ'nin taşeronu olarak Yeşil Bursa Konutları projesinin ince işleri yapılmıştır.",
+    konum: "Bursa", kategori: "Konut — toplu", rol: "Alt taşeron (Çukurova Baytur)", durum: "Tamamlandı",
+    kapsam: ["Toplu konut ince işleri", "Sıva ve alçı", "Boya uygulamaları"],
+  },
+  "ford-servisleri": {
+    baslik: "Ford bölge servisleri",
+    aciklama: "Adana, Samsun ve Antalya Ford Bölge Müdürlüğü servis binalarının ince işleri ve tadilatları yapılmıştır.",
+    konum: "Adana, Samsun, Antalya", kategori: "Ticari", rol: "Ana yüklenici", durum: "Tamamlandı",
+    kapsam: ["Servis binası ince işleri", "İç ve dış cephe tadilat", "Boya ve kaplama"],
+  },
+  "migros-avm": {
+    baslik: "Beylikdüzü Migros AVM",
+    aciklama: "Beylikdüzü Migros AVM yapım sürecinde ince işler tamamlanmıştır.",
+    konum: "Beylikdüzü, İstanbul", kategori: "Ticari — AVM", rol: "Alt taşeron", durum: "Tamamlandı",
+    kapsam: ["AVM ince işleri", "Alçı ve sıva", "Boya uygulamaları"],
+  },
+  "saglik-hastaneleri": {
+    baslik: "Sağlık Bakanlığı hastaneleri",
+    aciklama: "Sağlık Bakanlığı'na bağlı İstanbul'daki hastanelerin inşaat işleri yapılmıştır.",
+    konum: "İstanbul", kategori: "Kamu — sağlık", rol: "Ana yüklenici", durum: "Tamamlandı",
+    kapsam: ["Hastane binası inşaat işleri", "İç mekan tadilat", "Sıva, alçı ve boya"],
+  },
+  "garanti-koza": {
+    baslik: "Garanti Koza projeleri",
+    aciklama: "Garanti Koza AŞ'nin taşeronu olarak çeşitli projelerin ince işleri yapılmıştır.",
+    konum: "İstanbul", kategori: "Ticari", rol: "Alt taşeron (Garanti Koza)", durum: "Tamamlandı",
+    kapsam: ["Proje ince işleri", "Sıva ve alçı", "Seramik kaplama", "Boya"],
+  },
+  "adapazari-fabrika": {
+    baslik: "Adapazarı Otoyol Fabrikası",
+    aciklama: "Adapazarı Otoyol Fabrikası binasının ince işleri tamamlanmıştır.",
+    konum: "Adapazarı, Sakarya", kategori: "Ticari — endüstriyel", rol: "Alt taşeron", durum: "Tamamlandı",
+    kapsam: ["Fabrika binası ince işleri", "Sıva ve boya", "Zemin kaplama"],
+  },
+};
+
+
+const { slug } = Astro.params;
+const proje = tumProjeler[slug as string];
+if (!proje) Astro.redirect('/projeler');
+export function getStaticPaths() {
+  return Object.keys(tumProjeler).map((slug) => ({ params: { slug } }));
+}
+---
+
+
+<Layout title={`${proje.baslik} | TES İnşaat Projeler`} description={proje.aciklama}>
+
+  <div class="breadcrumb-bar">
+    <div class="section-container">
+      <a href="/">Ana Sayfa</a><span class="sep">/</span>
+      <a href="/projeler">Projeler</a><span class="sep">/</span>
+      <span class="current">{proje.baslik}</span>
+    </div>
+  </div>
+
+  <!-- Galeri -->
+  <div class="gallery-hero"></div>
+
+  <!-- Proje bilgileri -->
+  <section class="section-padding" style="background-color: var(--cream);">
+    <div class="section-container">
+      <p class="accent-text fade-in">Proje detayı</p>
+      <h1 class="proje-title fade-in">{proje.baslik}</h1>
+      <p class="proje-desc fade-in">{proje.aciklama}</p>
+
+      <div class="info-grid fade-in">
+        <div class="info-item">
+          <span class="info-label">Konum</span>
+          <span class="info-value">{proje.konum}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Kategori</span>
+          <span class="info-value" style="color: var(--copper);">{proje.kategori}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Rol</span>
+          <span class="info-value">{proje.rol}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Durum</span>
+          <span class="info-value" style="color: #3B6D11;">{proje.durum}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kapsam -->
+  <section class="section-padding" style="background-color: var(--sand);">
+    <div class="section-container">
+      <p class="accent-text fade-in">Yapılan işler</p>
+      <h2 class="section-title fade-in">Proje kapsamı</h2>
+      <div class="scope-list">
+        {proje.kapsam.map((k: string) => (
+          <div class="scope-row fade-in">
+            <div class="scope-check">&#10003;</div>
+            <p>{k}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background-color: var(--cream); padding: 4rem 0;">
+    <div class="section-container">
+      <div class="cta-inner fade-in">
+        <div class="cta-text">
+          <h2>Benzer bir proje mi planlıyorsunuz?</h2>
+          <p>Ücretsiz keşif ve fiyat teklifi alın.</p>
+        </div>
+        <a href="https://wa.me/905XXXXXXXXX" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+          WhatsApp ile Ulaşın <span>&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .breadcrumb-bar {
+    background-color: var(--cream); padding: 0.75rem 0; font-size: 0.8rem; border-bottom: 1px solid var(--sand);
+  }
+  .breadcrumb-bar a { color: var(--warm-gray); text-decoration: none; }
+  .breadcrumb-bar .sep { margin: 0 0.5rem; color: var(--copper-light); }
+  .breadcrumb-bar .current { color: var(--deep-charcoal); font-weight: 500; }
+
+  .gallery-hero {
+    height: 320px;
+    background: linear-gradient(135deg, var(--copper-light), var(--copper-dark));
+  }
+
+  .proje-title {
+    font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 800;
+    color: var(--deep-charcoal); margin-bottom: 0.75rem;
+  }
+  .proje-desc {
+    font-size: 1rem; color: var(--earth-brown); line-height: 1.7;
+    max-width: 640px; margin-bottom: 2rem;
+  }
+
+  .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; max-width: 540px; }
+  .info-item { background-color: var(--sand); border-radius: 10px; padding: 1rem 1.25rem; }
+  .info-label { display: block; font-size: 0.7rem; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.25rem; }
+  .info-value { font-size: 0.95rem; font-weight: 600; color: var(--deep-charcoal); }
+
+  .section-title { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: var(--deep-charcoal); margin-bottom: 1.5rem; }
+
+  .scope-list { display: flex; flex-direction: column; gap: 0.5rem; max-width: 540px; }
+  .scope-row {
+    display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem;
+    background-color: white; border-radius: 8px; border: 1px solid rgba(240,232,222,0.8);
+  }
+  .scope-check {
+    width: 22px; height: 22px; background-color: var(--copper); border-radius: 5px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--cream); font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
+  }
+  .scope-row p { font-size: 0.9rem; color: var(--earth-brown); }
+
+  .cta-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    background-color: var(--sand); border-radius: 16px; padding: 2.5rem;
+  }
+  .cta-text h2 { font-size: 1.5rem; font-weight: 700; color: var(--deep-charcoal); margin-bottom: 0.25rem; }
+  .cta-text p { font-size: 0.9rem; color: var(--warm-gray); }
+
+  @media (max-width: 768px) {
+    .gallery-hero { height: 200px; }
+    .info-grid { grid-template-columns: 1fr; }
+    .cta-inner { flex-direction: column; text-align: center; gap: 1.5rem; padding: 2rem 1.5rem; }
+  }
+</style>

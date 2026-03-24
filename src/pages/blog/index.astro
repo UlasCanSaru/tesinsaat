@@ -1,0 +1,157 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const yazilar = [
+  { baslik: "Anahtar teslim villa yaptırırken dikkat edilmesi gereken 10 konu", ozet: "Arsa seçiminden malzeme kalitesine, sözleşme detaylarından süre planlamasına kadar bilmeniz gerekenler.", tarih: "15 Mart 2026", sure: "8 dk", kategori: "Rehber", slug: "anahtar-teslim-villa-rehberi", one_cikan: true },
+  { baslik: "İç ve dış cephe boya seçimi: nelere dikkat etmeli?", ozet: "Boya türleri, marka karşılaştırması ve uygulama ipuçları.", tarih: "10 Mart 2026", sure: "5 dk", kategori: "Rehber", slug: "boya-secimi-rehberi", one_cikan: false },
+  { baslik: "2026'da inşaat maliyetleri: güncel durum ve öngörüler", ozet: "Çimento, demir ve işçilik maliyetlerindeki değişimler.", tarih: "5 Mart 2026", sure: "6 dk", kategori: "Sektör", slug: "insaat-maliyetleri-2026", one_cikan: false },
+  { baslik: "Şile villa projesi: baştan sona tüm süreç", ozet: "Arsa alımından teslime, zorluklar ve çözümler.", tarih: "28 Şubat 2026", sure: "10 dk", kategori: "Proje hikayesi", slug: "sile-villa-hikayesi", one_cikan: false },
+  { baslik: "Su izolasyonu neden bu kadar önemli?", ozet: "Yanlış izolasyonun binayla ilgili riskleri ve doğru yöntemler.", tarih: "20 Şubat 2026", sure: "4 dk", kategori: "Rehber", slug: "su-izolasyonu-onemi", one_cikan: false },
+];
+
+const featured = yazilar.find(y => y.one_cikan);
+const diger = yazilar.filter(y => !y.one_cikan);
+
+const kategoriRenk: Record<string, string> = {
+  "Rehber": "tag-rehber",
+  "Sektör": "tag-sektor",
+  "Proje hikayesi": "tag-proje",
+};
+---
+
+<Layout
+  title="Blog | TES İnşaat — İnşaat Rehberleri ve Haberler"
+  description="İnşaat sektörü rehberleri, proje hikayeleri ve güncel haberler. TES İnşaat blog."
+>
+
+  <section class="hero-blog">
+    <div class="section-container">
+      <p class="accent-text fade-in" style="color: var(--warm-gray);">Blog</p>
+      <h1 class="fade-in fade-in-delay-1">İnşaat dünyasından<br>bilgi ve rehberler.</h1>
+      <p class="hero-blog-desc fade-in fade-in-delay-2">
+        Sektör haberleri, proje hikayeleri ve müşterilerimiz için hazırladığımız pratik rehberler.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-padding" style="background-color: var(--cream);">
+    <div class="section-container">
+
+      <!-- Öne çıkan yazı -->
+      {featured && (
+        <a href={`/blog/${featured.slug}`} class="featured-post fade-in">
+          <div class="featured-img">
+            <span>Kapak görseli</span>
+          </div>
+          <div class="featured-body">
+            <span class={`blog-tag ${kategoriRenk[featured.kategori]}`}>{featured.kategori}</span>
+            <h2>{featured.baslik}</h2>
+            <p>{featured.ozet}</p>
+            <div class="blog-meta">
+              <span>{featured.tarih}</span>
+              <span>{featured.sure} okuma</span>
+            </div>
+            <span class="blog-link">Yazıyı oku &rarr;</span>
+          </div>
+        </a>
+      )}
+
+      <!-- Yazı grid -->
+      <div class="blog-grid">
+        {diger.map((y) => (
+          <a href={`/blog/${y.slug}`} class="blog-card fade-in">
+            <div class="blog-card-img">
+              <span>Görsel</span>
+            </div>
+            <div class="blog-card-body">
+              <span class={`blog-tag ${kategoriRenk[y.kategori]}`}>{y.kategori}</span>
+              <h3>{y.baslik}</h3>
+              <p>{y.ozet}</p>
+              <div class="blog-meta">
+                <span>{y.tarih}</span>
+                <span>{y.sure}</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <section style="background-color: var(--cream); padding-bottom: 4rem;">
+    <div class="section-container">
+      <div class="cta-inner fade-in">
+        <div class="cta-text">
+          <h2>Projeniz hakkında konuşalım</h2>
+          <p>Sorularınız için bize ulaşın.</p>
+        </div>
+        <a href="https://wa.me/905XXXXXXXXX" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+          WhatsApp ile Ulaşın <span>&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .hero-blog { background-color: var(--deep-charcoal); padding: 5rem 0 4rem; }
+  .hero-blog h1 { font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 800; color: var(--cream); margin: 0.5rem 0 1rem; }
+  .hero-blog-desc { font-size: 1rem; color: rgba(250,246,241,0.6); max-width: 440px; line-height: 1.7; }
+
+  .featured-post {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0; background-color: white;
+    border: 1px solid var(--sand); border-radius: 12px; overflow: hidden;
+    text-decoration: none; margin-bottom: 2rem; transition: transform 0.2s ease;
+  }
+  .featured-post:hover { transform: translateY(-2px); }
+  .featured-img {
+    min-height: 260px; background: linear-gradient(135deg, var(--copper-light), var(--copper-dark));
+    display: flex; align-items: center; justify-content: center;
+  }
+  .featured-img span { font-size: 0.85rem; color: rgba(250,246,241,0.5); font-style: italic; }
+  .featured-body { padding: 2rem; display: flex; flex-direction: column; justify-content: center; }
+  .featured-body h2 { font-size: 1.25rem; font-weight: 700; color: var(--deep-charcoal); margin: 0.5rem 0; line-height: 1.3; }
+  .featured-body p { font-size: 0.85rem; color: var(--warm-gray); line-height: 1.6; margin-bottom: 0.75rem; }
+
+  .blog-tag {
+    display: inline-block; padding: 3px 10px; border-radius: 20px;
+    font-size: 0.7rem; font-weight: 500;
+  }
+  .tag-rehber { background: rgba(59,139,212,0.12); color: #185FA5; }
+  .tag-sektor { background: rgba(184,115,51,0.12); color: #8B5A2B; }
+  .tag-proje { background: rgba(99,153,34,0.12); color: #3B6D11; }
+
+  .blog-meta { display: flex; gap: 1rem; font-size: 0.75rem; color: var(--warm-gray); }
+  .blog-link { font-size: 0.85rem; color: var(--copper); font-weight: 500; margin-top: 0.5rem; }
+
+  .blog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  .blog-card {
+    background-color: white; border: 1px solid var(--sand); border-radius: 12px;
+    overflow: hidden; text-decoration: none; transition: transform 0.2s ease;
+  }
+  .blog-card:hover { transform: translateY(-2px); }
+  .blog-card-img {
+    height: 140px; background: linear-gradient(135deg, var(--warm-gray), var(--earth-brown));
+    display: flex; align-items: center; justify-content: center;
+  }
+  .blog-card-img span { font-size: 0.8rem; color: rgba(250,246,241,0.5); font-style: italic; }
+  .blog-card-body { padding: 1.25rem; }
+  .blog-card-body h3 { font-size: 0.95rem; font-weight: 700; color: var(--deep-charcoal); margin: 0.5rem 0 0.375rem; line-height: 1.3; }
+  .blog-card-body p { font-size: 0.8rem; color: var(--warm-gray); line-height: 1.5; margin-bottom: 0.5rem; }
+
+  .cta-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    background-color: var(--sand); border-radius: 16px; padding: 2.5rem;
+  }
+  .cta-text h2 { font-size: 1.5rem; font-weight: 700; color: var(--deep-charcoal); margin-bottom: 0.25rem; }
+  .cta-text p { font-size: 0.9rem; color: var(--warm-gray); }
+
+  @media (max-width: 768px) {
+    .featured-post { grid-template-columns: 1fr; }
+    .featured-img { min-height: 180px; }
+    .blog-grid { grid-template-columns: 1fr; }
+    .cta-inner { flex-direction: column; text-align: center; gap: 1.5rem; padding: 2rem 1.5rem; }
+  }
+</style>

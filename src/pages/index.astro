@@ -1,11 +1,467 @@
 ---
-import Welcome from '../components/Welcome.astro';
+// index.astro — Ana Sayfa
+// Layout'u import ediyoruz, her sayfa bunu kullanacak
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Hizmetler verisi
+const hizmetler = [
+  { no: "01", kisa: "A/S", baslik: "Alçı ve sıva", aciklama: "İç-dış mekan alçı, ince sıva ve dış cephe sıva uygulamaları.", slug: "alci-siva" },
+  { no: "02", kisa: "BY", baslik: "Boya işleri", aciklama: "İç ve dış cephe boya, dekoratif boyama uygulamaları.", slug: "boya-isleri" },
+  { no: "03", kisa: "DD", baslik: "Demir donatı", aciklama: "Temel ve taşıyıcı elemanlar için demir donatı uygulamaları.", slug: "demir-donati" },
+  { no: "04", kisa: "SF", baslik: "Seramik ve fayans", aciklama: "Zemin ve duvarlarda seramik kaplama, fayans döşeme.", slug: "seramik-fayans" },
+  { no: "05", kisa: "TY", baslik: "Tadilat ve yenileme", aciklama: "Mevcut yapıların onarımı, yenileme ve dekorasyon.", slug: "tadilat-yenileme" },
+  { no: "06", kisa: "İZ", baslik: "İzolasyon", aciklama: "Su, ses ve ısı yalıtımı için profesyonel izolasyon.", slug: "izolasyon" },
+  { no: "07", kisa: "ATV", baslik: "Anahtar teslim villa", aciklama: "Projeden teslime tüm inşaat ve dekorasyon süreçleri.", slug: "anahtar-teslim-villa" },
+  { no: "08", kisa: "İİ", baslik: "İnce işler", aciklama: "Duvar, şap, montaj, seramik ve kaplama detay işleri.", slug: "ince-isler" },
+  { no: "09", kisa: "PÖ", baslik: "Projeye özel çözümler", aciklama: "Askeri tesis, AVM, okul ve hastane için özel projeler.", slug: "projeye-ozel-cozumler" },
+];
+
+// İstatistikler
+const istatistikler = [
+  { rakam: "24+", etiket: "Yıl deneyim" },
+  { rakam: "50+", etiket: "Tamamlanan proje" },
+  { rakam: "11+", etiket: "Kurumsal referans" },
+  { rakam: "9", etiket: "Hizmet alanı" },
+];
+
+// Öne çıkan projeler
+const projeler = [
+  { baslik: "Şile villa projesi", aciklama: "Anahtar teslim villa inşaatı", kategori: "Konut", slug: "sile-villa" },
+  { baslik: "Gebze metro istasyonu", aciklama: "2 istasyon ince işleri", kategori: "Kamu", slug: "gebze-metro" },
+  { baslik: "Kartal Real AVM", aciklama: "AVM ince işleri", kategori: "Ticari", slug: "kartal-real-avm" },
+  { baslik: "Türk Telekom binaları", aciklama: "Kurum binaları tadilatı", kategori: "Kurumsal", slug: "turk-telekom" },
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title="TES İnşaat | İstanbul İnşaat Firması — 2001'den Beri"
+  description="2001'den beri İstanbul ve Marmara Bölgesi'nde AVM, hastane, askeri tesis, villa ve konut projelerinde uzman inşaat firması. Ücretsiz keşif için arayın."
+>
+
+  <!-- ==========================================
+       HERO SECTION
+       ========================================== -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="section-container hero-content">
+      <p class="accent-text fade-in">2001'den beri</p>
+      <h1 class="hero-title fade-in fade-in-delay-1">
+        Güvenilir yapılar,<br />kalıcı çözümler.
+      </h1>
+      <p class="hero-desc fade-in fade-in-delay-2">
+        İstanbul ve Marmara Bölgesi'nde kamu ve özel sektör projelerinde
+        uzman taşeron hizmeti.
+      </p>
+      <div class="hero-buttons fade-in fade-in-delay-3">
+        <a
+          href="https://wa.me/905XXXXXXXXX?text=Merhaba%2C%20bilgi%20almak%20istiyorum"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-whatsapp"
+        >
+          Ücretsiz Keşif Talebi
+          <span>&rarr;</span>
+        </a>
+        <a href="/projeler" class="btn-outline" style="border-color: var(--cream); color: var(--cream);">
+          Projelerimiz
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       HİZMETLER SECTION
+       ========================================== -->
+  <section class="section-padding" style="background-color: var(--cream);">
+    <div class="section-container">
+      <p class="accent-text fade-in">Ne yapıyoruz</p>
+      <h2 class="section-title fade-in">Hizmetlerimiz</h2>
+
+      <div class="services-grid">
+        {hizmetler.map((h) => (
+          <a href={`/hizmetler/${h.slug}`} class="service-card fade-in">
+            <div class="service-top">
+              <span class="service-num">{h.no}</span>
+              <div class="service-icon">
+                <span>{h.kisa}</span>
+              </div>
+            </div>
+            <h3>{h.baslik}</h3>
+            <p>{h.aciklama}</p>
+            <span class="service-link">Detaylar &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       İSTATİSTİKLER SECTION
+       ========================================== -->
+  <section class="section-padding" style="background-color: var(--sand);">
+    <div class="section-container">
+      <p class="accent-text fade-in">Rakamlarla</p>
+      <h2 class="section-title fade-in">TES İnşaat</h2>
+
+      <div class="stats-grid">
+        {istatistikler.map((s) => (
+          <div class="stat-card fade-in">
+            <span class="stat-number">{s.rakam}</span>
+            <span class="stat-label">{s.etiket}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       PROJELER SECTION
+       ========================================== -->
+  <section class="section-padding" style="background-color: var(--cream);">
+    <div class="section-container">
+      <p class="accent-text fade-in">Portföyümüz</p>
+      <h2 class="section-title fade-in">Öne çıkan projeler</h2>
+
+      <div class="projects-grid">
+        {projeler.map((p) => (
+          <a href={`/projeler/${p.slug}`} class="project-card fade-in">
+            <div class="project-img">
+              <span class="project-tag">{p.kategori}</span>
+            </div>
+            <div class="project-body">
+              <h3>{p.baslik}</h3>
+              <p>{p.aciklama}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="text-center fade-in" style="margin-top: 2rem;">
+        <a href="/projeler" class="btn-ghost">Tüm projeleri gör &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       CTA SECTION
+       ========================================== -->
+  <section class="cta-section">
+    <div class="section-container cta-inner">
+      <div class="cta-text">
+        <h2>Projeniz için görüşelim</h2>
+        <p>Ücretsiz keşif ve fiyat teklifi alın.</p>
+      </div>
+      <a
+        href="https://wa.me/905XXXXXXXXX?text=Merhaba%2C%20teklif%20almak%20istiyorum"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-whatsapp"
+      >
+        WhatsApp ile Ulaşın
+        <span>&rarr;</span>
+      </a>
+    </div>
+  </section>
+
 </Layout>
+
+<style>
+  /* ============================================
+     HERO
+     ============================================ */
+  .hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--deep-charcoal);
+    overflow: hidden;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(44, 36, 32, 0.85),
+      rgba(44, 36, 32, 0.5)
+    );
+    z-index: 1;
+  }
+
+  /* 
+    TODO: Hero arka plan görseli eklendiğinde bu satırı aç:
+    .hero { background-image: url('/images/hero.jpg'); background-size: cover; background-position: center; }
+  */
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    color: var(--cream);
+    margin: 0.75rem 0 1.25rem;
+  }
+
+  .hero-desc {
+    font-size: 1.125rem;
+    color: rgba(250, 246, 241, 0.65);
+    max-width: 480px;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* ============================================
+     HİZMETLER
+     ============================================ */
+  .section-title {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
+    color: var(--deep-charcoal);
+    margin-bottom: 2rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .service-card {
+    background-color: white;
+    border: 1px solid var(--sand);
+    border-radius: 12px;
+    padding: 1.5rem 1.25rem;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .service-card:hover {
+    border-color: var(--copper);
+    transform: translateY(-2px);
+  }
+
+  .service-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .service-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--sand);
+  }
+
+  .service-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--cream);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .service-icon span {
+    font-size: 0.7rem;
+    color: var(--copper);
+    font-weight: 600;
+  }
+
+  .service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--deep-charcoal);
+  }
+
+  .service-card p {
+    font-size: 0.8rem;
+    color: var(--warm-gray);
+    line-height: 1.5;
+  }
+
+  .service-link {
+    font-size: 0.8rem;
+    color: var(--copper);
+    font-weight: 500;
+    margin-top: auto;
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ============================================
+     İSTATİSTİKLER
+     ============================================ */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .stat-card {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background-color: white;
+    border-radius: 12px;
+  }
+
+  .stat-number {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--copper);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--warm-gray);
+  }
+
+  @media (max-width: 768px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* ============================================
+     PROJELER
+     ============================================ */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .project-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    border: 1px solid var(--sand);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(92, 61, 46, 0.08);
+  }
+
+  .project-img {
+    height: 180px;
+    background: linear-gradient(135deg, var(--copper-light), var(--copper-dark));
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* TODO: Proje fotoğrafları eklendiğinde her kart için ayrı background-image kullanılacak */
+
+  .project-tag {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    background: rgba(250, 246, 241, 0.9);
+    color: var(--earth-brown);
+  }
+
+  .project-body {
+    padding: 1.25rem;
+  }
+
+  .project-body h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--deep-charcoal);
+    margin-bottom: 0.25rem;
+  }
+
+  .project-body p {
+    font-size: 0.85rem;
+    color: var(--warm-gray);
+  }
+
+  @media (max-width: 480px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ============================================
+     CTA SECTION
+     ============================================ */
+  .cta-section {
+    background-color: var(--cream);
+    padding: 0;
+  }
+
+  .cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--sand);
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .cta-text h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--deep-charcoal);
+    margin-bottom: 0.25rem;
+  }
+
+  .cta-text p {
+    font-size: 0.9rem;
+    color: var(--warm-gray);
+  }
+
+  @media (max-width: 768px) {
+    .cta-inner {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.5rem;
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  /* Yardımcı */
+  .text-center {
+    text-align: center;
+  }
+</style>
