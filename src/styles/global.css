@@ -1,4 +1,59 @@
-@import "tailwindcss";
+/* Self-hosted fonts (replaces external Google Fonts request) */
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/outfit-400-700-latin-ext.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/outfit-400-700-latin-ext.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/outfit-400-700-latin-ext.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/outfit-400-700-latin-ext.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/playfair-display-700-800-latin-ext.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('/fonts/playfair-display-700-800-latin-ext.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/cormorant-garamond-400-latin-ext.woff2') format('woff2');
+}
 
 /* ============================================
    TES İNŞAAT — Design Tokens
@@ -190,3 +245,13 @@ img { max-width: 100%; height: auto; display: block; }
 .fade-in-delay-2 { transition-delay: 0.2s; }
 .fade-in-delay-3 { transition-delay: 0.3s; }
 .fade-in-delay-4 { transition-delay: 0.4s; }
+
+/* Mobile-first performance: avoid JS-dependent reveal for above-the-fold text */
+@media (max-width: 768px) {
+  .fade-in,
+  .fade-in.visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

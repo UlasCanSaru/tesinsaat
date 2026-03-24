@@ -1,0 +1,36 @@
+
+> tes-insaat@0.0.1 dev
+> astro dev --host 0.0.0.0 --port 4321
+
+[vite] connected.
+[2m07:06:25[22m [34m[types][39m Generated [2m1ms[22m
+[33m[1m07:06:25[22m [WARN] [content][39m Content config not loaded
+[2m07:06:25[22m [34m[vite][39m Re-optimizing dependencies because vite config has changed
+[42m[1m astro [22m[49m [32mv6.0.8[39m [2mready in[22m 6253 [2mms[22m
+[2m┃[22m Local    [36mhttp://localhost:4321/[39m
+[2m┃[22m Network  [36mhttp://192.168.1.3:4321/[39m
+[2m07:06:25[22m [32mwatching for file changes...[39m
+[2m07:06:29[22m [34m[200][39m / [2m65ms[22m
+[2m07:06:30[22m [34m[vite][39m [32m✨ new dependencies optimized: [33mastro/runtime/client/dev-toolbar/entrypoint.js[32m[39m
+[2m07:06:30[22m [34m[vite][39m [32m✨ optimized dependencies changed. reloading[39m
+[2m07:06:30[22m [34m[200][39m / [2m3ms[22m
+[2m07:06:42[22m [34m[200][39m / [2m4ms[22m
+[2m07:06:43[22m [34m[200][39m /projeler [2m26ms[22m
+[2m07:06:46[22m [34m[200][39m /blog [2m21ms[22m
+[2m07:06:49[22m [34m[200][39m /blog/boya-secimi-rehberi [2m10ms[22m
+[2m07:06:52[22m [34m[200][39m /hizmetler [2m21ms[22m
+[2m07:06:52[22m [34m[200][39m /hizmetler/boya-isleri [2m20ms[22m
+[2m07:06:59[22m [34m[200][39m /hizmetler/alci-siva [2m5ms[22m
+[2m07:07:14[22m [34m[200][39m /hizmetler/boya-isleri [2m6ms[22m
+[2m07:07:54[22m [34m[watch][39m /src/styles/global.css, /src/pages/hizmetler/[slug].astro?astro&type=style&index=0&lang.css
+[2m07:07:55[22m [34m[200][39m /hizmetler/boya-isleri [2m19ms[22m
+[2m07:08:04[22m [34m[200][39m /hizmetler/boya-isleri [2m7ms[22m
+[2m07:08:05[22m [34m[200][39m /hizmetler/boya-isleri [2m3ms[22m
+[2m07:08:08[22m [34m[200][39m /hizmetler/alci-siva [2m4ms[22m
+[2m08:22:39[22m [34m[watch][39m /src/styles/global.css
+[2m08:22:39[22m [34m[watch][39m /src/styles/global.css
+[2m08:23:24[22m [34m[watch][39m src/layouts/Layout.astro
+[2m08:23:49[22m [34m[watch][39m src/layouts/Layout.astro
+[2m08:27:33[22m [34m[watch][39m /src/styles/global.css
+[2m08:27:33[22m [34m[watch][39m /src/styles/global.css
+[2m08:29:33[22m [34m[200][39m / [2m11ms[22m
